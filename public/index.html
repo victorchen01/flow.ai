@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://wagenaartje.github.io/neataptic/cdn/1.4.7/neataptic.js"></script>>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="game.css">
+</head>
+
+
+<body id = "mainBod">
+  <div class="wrapper">
+    <div  id="title">
+      <h1>F L O W</h1>
+    </div>
+    <div id="scoreboard">
+      <h3>s c o r e b o a r d</h3>
+      <table id="scoretable" width="100%">
+        <tr>
+          <td font="medium" align="left" width="50%"><h4><b>Player:</b></h4></td>
+          <td font="medium" align="right" width="50%"><h4><b>Score:</b></h4></td>
+        </tr>
+        <tr v-for="player in sortedArray(players)">
+          <td align="left">{{player.name}}</td>
+          <td align="right">{{player.score}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class = "game" width = "95%" height="95%" id = 'game'>
+      <div>
+        <div class="col-sm-6"><p id = 'gameStatus'>{{ status }}</p></div>
+        <div class="col-sm-6"><button id = 'button' onclick = 'togglePredict()'> {{ predict }}</button></div>
+      </div>
+      <p align="center">
+      <canvas id = 'canvas' width="600" height="600"><canvas>
+      </p>
+    </div>
+  </div>
+</body>
+
+
+<script src = 'update.js'></script>
+<script src = 'game.js'></script>
+
+
+</html>
